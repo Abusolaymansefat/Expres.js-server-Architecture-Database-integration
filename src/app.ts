@@ -3,6 +3,7 @@ import config from './config';
 import { pool } from './db';
 import { userRoute } from './modules/user/user.route';
 import { profileRoute } from './modules/profiles/profile.route';
+import { authRouter } from './modules/auth/auth.route';
 const app: Application = express();
 const port = config.port;
 
@@ -19,6 +20,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use("/api/users", userRoute);
 app.use("/api/profiles", profileRoute);
+app.use("/api/auth", authRouter);
 
 
 
